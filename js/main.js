@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initActiveNavLink();
     initProgramsDropdownA11y();
+    initMobileProgramsLinks();
     initMobileMenuDismiss();
     initGalleryFilters();
     initGalleryProjectModal();
@@ -358,6 +359,46 @@ function initMobileMenuDismiss() {
         if (event.target === mobileMenu) {
             toggleMobileMenu();
         }
+    });
+}
+
+function initMobileProgramsLinks() {
+    const mobileNavs = Array.from(document.querySelectorAll('.mobile-nav'));
+    if (mobileNavs.length === 0) return;
+
+    const programSubpages = [
+        { href: 'ramadhan-cooked-meals.html', label: 'Ramadhan Cooked Meals' },
+        { href: 'eid-support-programs.html', label: 'Eid Support Programs' },
+        { href: 'dry-food-distribution.html', label: 'Dry Food Distribution' },
+        { href: 'livelihood-empowerment.html', label: 'Livelihood Empowerment' }
+    ];
+
+    mobileNavs.forEach((nav) => {
+        const links = Array.from(nav.querySelectorAll('a'));
+        const programsLink = links.find((link) => (link.getAttribute('href') || '').toLowerCase() === 'programs.html');
+
+        if (!programsLink) return;
+
+        const existingHrefs = new Set(Array.from(nav.querySelectorAll('a')).map((link) => (link.getAttribute('href') || '').toLowerCase()));
+        const fragment = document.createDocumentFragment();
+
+        programSubpages.forEach((subpage) => {
+            if (existingHrefs.has(subpage.href.toLowerCase())) return;
+
+            const subLink = document.createElement('a');
+            subLink.href = subpage.href;
+            subLink.textContent = subpage.label;
+            subLink.classList.add('mobile-sub-link');
+            subLink.setAttribute('onclick', 'toggleMobileMenu()');
+            fragment.appendChild(subLink);
+        });
+
+        if (!fragment.hasChildNodes()) return;
+
+        const galleryLink = Array.from(nav.querySelectorAll('a')).find((link) => (link.getAttribute('href') || '').toLowerCase() === 'gallery.html');
+
+        const insertionPoint = galleryLink || programsLink.nextSibling;
+        nav.insertBefore(fragment, insertionPoint || null);
     });
 }
 
