@@ -7,24 +7,31 @@
         </button>
         
         <!-- Logo -->
-        <a href="#home" class="header-logo">
+        <a href="index.html" class="header-logo">
             <img src="images/logo.png" alt="Anwaar Foundation">
             <span class="logo-text">Anwaar Foundation</span>
         </a>
         
         <!-- Desktop Navigation -->
         <nav class="desktop-nav">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#programs" class="nav-link">Programs</a>
-            <a href="#impact" class="nav-link">Impact</a>
-            <a href="#portfolio" class="nav-link">Stories</a>
-            <a href="#partners" class="nav-link">Partners</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <div class="nav-dropdown">
+                <a href="programs.html" class="nav-link dropdown-toggle">Our Programs <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="ramadhan-cooked-meals.html">Ramadhan Cooked Meals</a>
+                    <a href="eid-support-programs.html">Eid Support Programs</a>
+                    <a href="dry-food-distribution.html">Dry Food Distribution</a>
+                    <a href="livelihood-empowerment.html">Livelihood Empowerment</a>
+                </div>
+            </div>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="get-involved.html" class="nav-link">Get Involved</a>
+            <a href="contact.html" class="nav-link">Contact Us</a>
         </nav>
         
         <!-- Donate Button -->
-        <a href="#donate" class="btn btn-donate">
+        <a href="donate.html" class="btn btn-donate">
             <i class="fas fa-heart"></i>
             <span>Donate</span>
         </a>

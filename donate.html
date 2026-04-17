@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support Anwaar Foundation through one-time and monthly donations.">
+    <title>Donate | Anwaar Foundation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <header class="main-header scrolled" id="mainHeader">
+        <div class="header-container">
+            <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="header-logo"><img src="images/logo.png" alt="Anwaar Foundation"><span class="logo-text">Anwaar Foundation</span></a>
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <div class="nav-dropdown">
+                    <a href="programs.html" class="nav-link dropdown-toggle">Our Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="ramadhan-cooked-meals.html">Ramadhan Cooked Meals</a>
+                        <a href="eid-support-programs.html">Eid Support Programs</a>
+                        <a href="dry-food-distribution.html">Dry Food Distribution</a>
+                        <a href="livelihood-empowerment.html">Livelihood Empowerment</a>
+                    </div>
+                </div>
+                                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="get-involved.html" class="nav-link">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <a href="donate.html" class="btn btn-donate active"><i class="fas fa-heart"></i><span>Donate</span></a>
+        </div>
+    </header>
+
+    <main class="donate-page">
+        <section class="donate-hero">
+            <img src="images/impact-distribution.jpg" alt="Anwaar Foundation food support in action">
+            <div class="donate-hero-overlay"></div>
+            <div class="donate-hero-content container">
+                <h1 data-anim="fade-down">Donate</h1>
+                <p data-anim="fade-up" data-delay="0.08s">Fuel dignified, life-changing support for vulnerable families through trusted, transparent giving.</p>
+            </div>
+        </section>
+
+        <section class="donate-impact-block">
+            <div class="container">
+                <div class="section-header centered" data-stagger="0.08">
+                    <span class="eyebrow" data-anim="fade-down">YOUR IMPACT</span>
+                    <h2 data-anim="fade-up">Every contribution moves support further</h2>
+                    <p data-anim="fade-up">Your donation helps us sustain food relief, seasonal assistance, and long-term empowerment programs.</p>
+                </div>
+                <div class="donate-impact-grid" data-stagger="0.1">
+                    <article class="donate-impact-card hover-card-soft" data-anim="fade-up">
+                        <h3>$25</h3>
+                        <p>Can help provide essential food support to a vulnerable household.</p>
+                    </article>
+                    <article class="donate-impact-card hover-card-soft" data-anim="fade-up">
+                        <h3>$50</h3>
+                        <p>Can support multiple meal distributions during high-need campaign periods.</p>
+                    </article>
+                    <article class="donate-impact-card hover-card-soft" data-anim="fade-up">
+                        <h3>$100</h3>
+                        <p>Can strengthen coordinated outreach through logistics and volunteer operations.</p>
+                    </article>
+                    <article class="donate-impact-card hover-card-soft" data-anim="fade-up">
+                        <h3>Monthly Giving</h3>
+                        <p>Builds predictable support so families can rely on timely, consistent assistance.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="donate-main-block" id="donation-panel">
+            <div class="container donate-main-grid" data-stagger="0.12">
+                <article class="donate-main-card hover-card-soft" data-anim="fade-up">
+                    <div class="section-header" data-stagger="0.08">
+                        <span class="eyebrow" data-anim="fade-down">MAKE A CONTRIBUTION</span>
+                        <h2 data-anim="fade-up">Choose your amount and giving type</h2>
+                        <p data-anim="fade-up">100% of public donations support program delivery and outreach operations.</p>
+                    </div>
+                    <div class="donation-options" role="group" aria-label="Select donation amount" data-stagger="0.06">
+                        <button class="donation-amount hover-btn-soft" data-amount="10" data-anim="zoom-in">$10</button>
+                        <button class="donation-amount hover-btn-soft" data-amount="25" data-anim="zoom-in">$25</button>
+                        <button class="donation-amount active hover-btn-soft" data-amount="50" data-anim="zoom-in">$50</button>
+                        <button class="donation-amount hover-btn-soft" data-amount="100" data-anim="zoom-in">$100</button>
+                        <button class="donation-amount hover-btn-soft" data-amount="250" data-anim="zoom-in">$250</button>
+                        <button class="donation-amount custom hover-btn-soft" data-anim="zoom-in">Custom</button>
+                    </div>
+                    <div class="donation-type" role="radiogroup" aria-label="Donation frequency">
+                        <label class="radio-label"><input type="radio" name="donation-type" value="one-time" checked><span>One-time gift</span></label>
+                        <label class="radio-label"><input type="radio" name="donation-type" value="monthly"><span>Monthly support</span></label>
+                    </div>
+                    <div class="donate-actions">
+                        <button class="btn btn-primary btn-large hover-btn-soft" onclick="processDonation()"><i class="fas fa-heart"></i> Donate Now</button>
+                        <a href="#" class="btn btn-secondary btn-large hover-btn-soft" onclick="showMonthlyInfo(event)"><i class="fas fa-sync-alt"></i> Why monthly giving?</a>
+                    </div>
+                    <p class="donate-note"><i class="fas fa-shield-halved"></i> We treat donor data responsibly and prioritize financial accountability.</p>
+                    <div class="payment-methods">
+                        <span>Supported channels:</span>
+                        <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                        <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                        <i class="fas fa-mobile-screen" aria-hidden="true"></i>
+                        <i class="fas fa-university" aria-hidden="true"></i>
+                    </div>
+                </article>
+
+                <aside class="donate-side-panel" data-stagger="0.12">
+                    <article class="donate-side-card hover-card-soft" data-anim="fade-up">
+                        <h3>Other Ways To Give</h3>
+                        <ul class="donate-side-list">
+                            <li><strong>In-kind support:</strong> Food staples, hygiene kits, logistics support, and event resources.</li>
+                            <li><strong>Corporate giving:</strong> Sponsor a program cycle or co-fund targeted community interventions.</li>
+                            <li><strong>Zakat & Sadaqah:</strong> Direct your faith-based giving to high-need beneficiaries responsibly.</li>
+                            <li><strong>Fundraise:</strong> Mobilize your network for a campaign through schools, offices, or community groups.</li>
+                        </ul>
+                        <a href="get-involved.html" class="btn btn-outline hover-btn-soft">Explore giving pathways</a>
+                    </article>
+                    <article class="donate-side-card hover-card-soft" data-anim="fade-up">
+                        <h3>Giving FAQ</h3>
+                        <div class="donate-faq-list" data-stagger="0.08">
+                            <details open data-anim="fade-up">
+                                <summary>Can I donate from outside Kenya?</summary>
+                                <p>Yes. We welcome international donors through secure digital payment channels and partner-supported remittance options.</p>
+                            </details>
+                            <details data-anim="fade-up">
+                                <summary>Will I receive donation confirmation?</summary>
+                                <p>Yes. You receive confirmation after successful processing, and additional documentation can be requested through our contact team.</p>
+                            </details>
+                            <details data-anim="fade-up">
+                                <summary>Can I dedicate my donation to a specific program?</summary>
+                                <p>Yes. Share your preferred focus area and our team will guide your contribution to the right campaign stream.</p>
+                            </details>
+                        </div>
+                    </article>
+                </aside>
+            </div>
+        </section>
+
+        <section class="closing-section">
+            <div class="closing-content" data-stagger="0.08">
+                <h2 data-anim="fade-up">Give today. Transform tomorrow.</h2>
+                <p class="programs-cta-text" data-anim="fade-up">Your generosity helps Anwaar Foundation deliver relief, dignity, and long-term resilience where it is needed most.</p>
+                <div class="programs-cta-actions">
+                    <a href="#donation-panel" class="btn btn-primary hover-btn-soft" data-anim="zoom-in">Donate now</a>
+                    <a href="contact.html" class="btn btn-outline hover-btn-soft" data-anim="zoom-in">Talk to our team</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.png" alt="Anwaar Foundation">
+                    <span>Anwaar Foundation</span>
+                </a>
+                <p class="footer-tagline">Humanitarian relief - Community empowerment - Sustainable impact</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <div class="contact-details">
+                    <p><i class="fas fa-map-marker-alt"></i> Anwar Centre, Lang'ata Road<br>Nairobi, Kenya</p>
+                    <p><i class="fas fa-envelope"></i> info@anwaarfoundation.com</p>
+                    <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
+                    <p><i class="fas fa-globe"></i> Nairobi & Tana River County</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <nav>
+                    <a href="about.html">About Us</a>
+                    <a href="programs.html">Our Programs</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="get-involved.html">Get Involved</a>
+                    <a href="donate.html">Donate Now</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+            </div>
+            <div class="footer-legal">
+                <h4>Legal</h4>
+                <nav>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Accessibility</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anwaar Foundation. All rights reserved.</p>
+            <p class="registration">Registered Non-Profit - Registration: CLG-K6F7DE</p>
+        </div>
+    </div>
+</footer>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+        <nav class="mobile-nav">
+            <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+            <a href="about.html" onclick="toggleMobileMenu()">About</a>
+            <a href="programs.html" onclick="toggleMobileMenu()">Our Programs</a>
+                        <a href="gallery.html" onclick="toggleMobileMenu()">Gallery</a>
+            <a href="get-involved.html" onclick="toggleMobileMenu()">Get Involved</a>
+            <a href="contact.html" onclick="toggleMobileMenu()">Contact Us</a>
+            <a href="donate.html" onclick="toggleMobileMenu()">Donate</a>
+        </nav>
+    </div>
+
+    <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage">Message sent successfully!</span></div>
+    <script src="js/main.js"></script>
+</body>
+</html>

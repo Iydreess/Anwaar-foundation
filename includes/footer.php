@@ -4,7 +4,7 @@
         <div class="footer-grid">
             <!-- Brand Column -->
             <div class="footer-brand">
-                <a href="#home" class="footer-logo">
+                <a href="index.html" class="footer-logo">
                     <img src="images/logo.png" alt="Anwaar Foundation">
                     <span>Anwaar Foundation</span>
                 </a>
@@ -24,7 +24,7 @@
                 <h4>Contact Us</h4>
                 <div class="contact-details">
                     <p><i class="fas fa-map-marker-alt"></i> Anwar Centre, Lang'ata Road<br>Nairobi, Kenya</p>
-                    <p><i class="fas fa-envelope"></i> info@anwaarfoundation.org</p>
+                    <p><i class="fas fa-envelope"></i> info@anwaarfoundation.com</p>
                     <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
                     <p><i class="fas fa-globe"></i> Nairobi & Tana River County</p>
                 </div>
@@ -34,11 +34,12 @@
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <nav>
-                    <a href="#about">About Us</a>
-                    <a href="#programs">Our Programs</a>
-                    <a href="#impact">Our Impact</a>
-                    <a href="#donate">Donate Now</a>
-                    <a href="#contact">Contact</a>
+                    <a href="about.html">About Us</a>
+                    <a href="programs.html">Our Programs</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="get-involved.html">Get Involved</a>
+                    <a href="donate.html">Donate Now</a>
+                    <a href="contact.html">Contact Us</a>
                 </nav>
             </div>
             

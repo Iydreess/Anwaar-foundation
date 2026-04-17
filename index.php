@@ -44,8 +44,8 @@
                     <p class="hero-subheadline">Community empowerment. Sustainable impact.</p>
                     <p class="hero-body">We work with vulnerable communities in Kenya—providing food, restoring dignity, and building resilient livelihoods.</p>
                     <div class="hero-ctas">
-                        <a href="#donate" class="btn btn-primary">Donate Now</a>
-                        <a href="#programs" class="btn btn-secondary">Our Programs</a>
+                        <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                        <a href="programs.html" class="btn btn-secondary">Our Programs</a>
                     </div>
                 </div>
                 
@@ -199,7 +199,7 @@
                         <div class="program-content">
                             <h3>Ramadhan Cooked Meals</h3>
                             <p>Daily iftar distribution in informal settlements, providing nutritious meals to fasting families.</p>
-                            <a href="#donate" class="link-gold">Support this program <i class="fas fa-arrow-right"></i></a>
+                            <a href="ramadhan-cooked-meals.html" class="link-gold">View program details <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -211,7 +211,7 @@
                         <div class="program-content">
                             <h3>Eid-ul-Fitr & Eid-ul-Adha</h3>
                             <p>Festive meals and meat distribution for families and children's homes during Eid celebrations.</p>
-                            <a href="#donate" class="link-gold">Support this program <i class="fas fa-arrow-right"></i></a>
+                            <a href="eid-support-programs.html" class="link-gold">View program details <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -223,7 +223,7 @@
                         <div class="program-content">
                             <h3>Dry Food & Livelihoods</h3>
                             <p>Essential supplies in remote areas plus self-sufficiency projects for long-term resilience.</p>
-                            <a href="#donate" class="link-gold">Support this program <i class="fas fa-arrow-right"></i></a>
+                            <a href="dry-food-distribution.html" class="link-gold">View program details <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -479,15 +479,15 @@
                 <div class="quick-links">
                     <div class="link-column">
                         <h4>Explore</h4>
-                        <a href="#programs">Programs</a>
+                        <a href="programs.html">Programs</a>
                         <a href="#impact">Impact</a>
                         <a href="#portfolio">Stories</a>
                     </div>
                     <div class="link-column">
                         <h4>Connect</h4>
                         <a href="#partners">Partners</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#donate">Donate</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="donate.html">Donate</a>
                     </div>
                     <div class="link-column">
                         <h4>Legal</h4>
@@ -516,14 +516,12 @@
             <i class="fas fa-times"></i>
         </button>
         <nav class="mobile-nav">
-            <a href="#home" onclick="toggleMobileMenu()">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()">About Us</a>
-            <a href="#programs" onclick="toggleMobileMenu()">Programs</a>
-            <a href="#impact" onclick="toggleMobileMenu()">Impact</a>
-            <a href="#portfolio" onclick="toggleMobileMenu()">Stories</a>
-            <a href="#partners" onclick="toggleMobileMenu()">Partners</a>
-            <a href="#donate" onclick="toggleMobileMenu()">Donate</a>
-            <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+            <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+            <a href="about.html" onclick="toggleMobileMenu()">About Us</a>
+            <a href="programs.html" onclick="toggleMobileMenu()">Our Programs</a>
+            <a href="get-involved.html" onclick="toggleMobileMenu()">Get Involved</a>
+            <a href="contact.html" onclick="toggleMobileMenu()">Contact Us</a>
+            <a href="donate.html" onclick="toggleMobileMenu()">Donate</a>
         </nav>
     </div>
     

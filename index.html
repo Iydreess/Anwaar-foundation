@@ -34,24 +34,31 @@
             </button>
             
             <!-- Logo -->
-            <a href="#home" class="header-logo">
+            <a href="index.html" class="header-logo">
                 <img src="images/logo.png" alt="Anwaar Foundation">
                 <span class="logo-text">Anwaar Foundation</span>
             </a>
             
             <!-- Desktop Navigation -->
             <nav class="desktop-nav">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#programs" class="nav-link">Programs</a>
-                <a href="#impact" class="nav-link">Impact</a>
-                <a href="#portfolio" class="nav-link">Stories</a>
-                <a href="#partners" class="nav-link">Partners</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <div class="nav-dropdown">
+                    <a href="programs.html" class="nav-link dropdown-toggle">Our Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="ramadhan-cooked-meals.html">Ramadhan Cooked Meals</a>
+                        <a href="eid-support-programs.html">Eid Support Programs</a>
+                        <a href="dry-food-distribution.html">Dry Food Distribution</a>
+                        <a href="livelihood-empowerment.html">Livelihood Empowerment</a>
+                    </div>
+                </div>
+                                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="get-involved.html" class="nav-link">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
             </nav>
             
             <!-- Donate Button -->
-            <a href="#donate" class="btn btn-donate">
+            <a href="donate.html" class="btn btn-donate">
                 <i class="fas fa-heart"></i>
                 <span>Donate</span>
             </a>
@@ -74,8 +81,8 @@
                     <p class="hero-subheadline">Community empowerment. Sustainable impact.</p>
                     <p class="hero-body">We work with vulnerable communities in Kenya—providing food, restoring dignity, and building resilient livelihoods.</p>
                     <div class="hero-ctas">
-                        <a href="#donate" class="btn btn-primary">Donate Now</a>
-                        <a href="#programs" class="btn btn-secondary">Our Programs</a>
+                        <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                        <a href="programs.html" class="btn btn-secondary">Our Programs</a>
                     </div>
                 </div>
                 
@@ -139,27 +146,27 @@
         <section class="about-section">
             <div class="container">
                 <div class="about-grid">
-                    <div class="about-text">
-                        <span class="eyebrow">ABOUT US</span>
-                        <h2>Founded in 2021, rooted in the community.</h2>
-                        <p>Anwaar Foundation is a Kenyan nonprofit delivering humanitarian relief and sustainable development. We prioritize dignity, inclusion, and measurable outcomes.</p>
-                        <p>Our name means <em>light</em>—reflecting the hope we bring to vulnerable households across Nairobi and Tana River.</p>
+                    <div class="about-text" data-stagger="0.1">
+                        <span class="eyebrow" data-anim="fade-down">ABOUT US</span>
+                        <h2 data-anim="fade-up">Founded in 2021, rooted in the community.</h2>
+                        <p data-anim="fade-up">Anwaar Foundation is a Kenyan nonprofit delivering humanitarian relief and sustainable development. We prioritize dignity, inclusion, and measurable outcomes.</p>
+                        <p data-anim="fade-up">Our name means <em>light</em>—reflecting the hope we bring to vulnerable households across Nairobi and Tana River.</p>
                         
-                        <div class="vision-mission">
-                            <div class="vm-item">
+                        <div class="vision-mission" data-stagger="0.12">
+                            <div class="vm-item hover-card-soft" data-anim="fade-right">
                                 <h4><i class="fas fa-eye"></i> Vision</h4>
                                 <p>A society where every individual enjoys equal opportunities and lives with dignity.</p>
                             </div>
-                            <div class="vm-item">
+                            <div class="vm-item hover-card-soft" data-anim="fade-left">
                                 <h4><i class="fas fa-bullseye"></i> Mission</h4>
                                 <p>To empower vulnerable communities through education, healthcare, hunger alleviation, and sustainable livelihood programs.</p>
                             </div>
                         </div>
                         
-                        <a href="#impact" class="btn btn-outline">View our impact</a>
+                        <a href="about.html" class="btn btn-outline hover-btn-soft" data-anim="zoom-in">Learn more about us</a>
                     </div>
                     
-                    <div class="about-image">
+                    <div class="about-image hover-image-zoom" data-anim="fade-left" data-delay="0.12s">
                         <img src="images/about-team.jpg" alt="Anwaar Foundation team in the field">
                         <div class="image-caption">
                             <span>Field coordination • Tana River</span>
@@ -229,7 +236,7 @@
                         <div class="program-content">
                             <h3>Ramadhan Cooked Meals</h3>
                             <p>Daily iftar distribution in informal settlements, providing nutritious meals to fasting families.</p>
-                            <a href="#donate" class="link-gold">Support this program <i class="fas fa-arrow-right"></i></a>
+                            <a href="ramadhan-cooked-meals.html" class="link-gold">View program details <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -241,7 +248,7 @@
                         <div class="program-content">
                             <h3>Eid-ul-Fitr & Eid-ul-Adha</h3>
                             <p>Festive meals and meat distribution for families and children's homes during Eid celebrations.</p>
-                            <a href="#donate" class="link-gold">Support this program <i class="fas fa-arrow-right"></i></a>
+                            <a href="eid-support-programs.html" class="link-gold">View program details <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -253,7 +260,7 @@
                         <div class="program-content">
                             <h3>Dry Food & Livelihoods</h3>
                             <p>Essential supplies in remote areas plus self-sufficiency projects for long-term resilience.</p>
-                            <a href="#donate" class="link-gold">Support this program <i class="fas fa-arrow-right"></i></a>
+                            <a href="dry-food-distribution.html" class="link-gold">View program details <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -297,7 +304,7 @@
                             </div>
                         </div>
                         
-                        <a href="#portfolio" class="btn btn-outline">View our portfolio</a>
+                        <a href="gallery.html" class="btn btn-outline">View our gallery</a>
                     </div>
                     
                     <div class="impact-image">
@@ -371,7 +378,7 @@
                             </div>
                         </div>
                         
-                        <a href="#contact" class="btn btn-outline">Become a partner</a>
+                        <a href="get-involved.html" class="btn btn-outline">Become a partner</a>
                     </div>
                     
                     <div class="partners-image">
@@ -408,10 +415,10 @@
                     </div>
                     
                     <div class="donate-actions">
-                        <button class="btn btn-primary btn-large" onclick="processDonation()">
+                        <a href="donate.html" class="btn btn-primary btn-large hover-btn-soft">
                             <i class="fas fa-heart"></i> Donate Now
-                        </button>
-                        <a href="#" class="btn btn-secondary btn-large" onclick="showMonthlyInfo(event)">
+                        </a>
+                        <a href="donate.html" class="btn btn-secondary btn-large hover-btn-soft">
                             <i class="fas fa-sync-alt"></i> Start monthly giving
                         </a>
                     </div>
@@ -431,70 +438,7 @@
             </div>
         </section>
         
-        <!-- Section 10: Contact -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-form-wrapper">
-                        <span class="eyebrow">CONTACT</span>
-                        <h2>Let's build something together.</h2>
-                        <p>Ask about partnerships, volunteering, or how we work.</p>
-                        
-                        <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required placeholder="Your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required placeholder="your@email.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </form>
-                        
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <strong>Anwar Centre</strong>
-                                    <p>Lang'ata Road, Nairobi, Kenya</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-globe"></i>
-                                <div>
-                                    <strong>Areas of Operation</strong>
-                                    <p>Nairobi County & Tana River County</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-image">
-                        <img src="images/contact-nairobi.jpg" alt="Nairobi Kenya">
-                        <div class="map-embed">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.1989180689!2d36.682587525!3d-1.302861298281875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
-                                width="100%" 
-                                height="100%" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Section 11: Newsletter -->
+        <!-- Section 10: Newsletter -->
         <section class="newsletter-section">
             <div class="container">
                 <div class="newsletter-content">
@@ -509,15 +453,15 @@
                 <div class="quick-links">
                     <div class="link-column">
                         <h4>Explore</h4>
-                        <a href="#programs">Programs</a>
+                        <a href="programs.html">Programs</a>
                         <a href="#impact">Impact</a>
                         <a href="#portfolio">Stories</a>
                     </div>
                     <div class="link-column">
                         <h4>Connect</h4>
                         <a href="#partners">Partners</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#donate">Donate</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="donate.html">Donate</a>
                     </div>
                     <div class="link-column">
                         <h4>Legal</h4>
@@ -529,76 +473,73 @@
             </div>
         </section>
         
-        <!-- Section 12: Closing Statement -->
+        <!-- Section 11: Closing Statement -->
         <section class="closing-section">
-            <div class="closing-content">
-                <h2>Light, relief, and lasting change—delivered with dignity.</h2>
+            <div class="closing-content" data-stagger="0.08">
+                <h2 data-anim="fade-up">Light, relief, and lasting change - delivered with dignity.</h2>
+                <p class="programs-cta-text" data-anim="fade-up">Join the mission today by giving, volunteering, or partnering with us to expand support for vulnerable families.</p>
+                <div class="programs-cta-actions">
+                    <a href="donate.html" class="btn btn-primary hover-btn-soft" data-anim="zoom-in">Donate now</a>
+                    <a href="get-involved.html" class="btn btn-outline hover-btn-soft" data-anim="zoom-in">Get involved</a>
+                </div>
             </div>
         </section>
     </main>
     
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Brand Column -->
-                <div class="footer-brand">
-                    <a href="#home" class="footer-logo">
-                        <img src="images/logo.png" alt="Anwaar Foundation">
-                        <span>Anwaar Foundation</span>
-                    </a>
-                    <p class="footer-tagline">Humanitarian relief • Community empowerment • Sustainable impact</p>
-                    
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Contact Column -->
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <div class="contact-details">
-                        <p><i class="fas fa-map-marker-alt"></i> Anwar Centre, Lang'ata Road<br>Nairobi, Kenya</p>
-                        <p><i class="fas fa-envelope"></i> info@anwaarfoundation.org</p>
-                        <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
-                        <p><i class="fas fa-globe"></i> Nairobi & Tana River County</p>
-                    </div>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <nav>
-                        <a href="#about">About Us</a>
-                        <a href="#programs">Our Programs</a>
-                        <a href="#impact">Our Impact</a>
-                        <a href="#donate">Donate Now</a>
-                        <a href="#contact">Contact</a>
-                    </nav>
-                </div>
-                
-                <!-- Legal -->
-                <div class="footer-legal">
-                    <h4>Legal</h4>
-                    <nav>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Use</a>
-                        <a href="#">Cookie Policy</a>
-                        <a href="#">Accessibility</a>
-                    </nav>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.png" alt="Anwaar Foundation">
+                    <span>Anwaar Foundation</span>
+                </a>
+                <p class="footer-tagline">Humanitarian relief - Community empowerment - Sustainable impact</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Anwaar Foundation. All rights reserved.</p>
-                <p class="registration">Registered Non-Profit • Registration: CLG-K6F7DE</p>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <div class="contact-details">
+                    <p><i class="fas fa-map-marker-alt"></i> Anwar Centre, Lang'ata Road<br>Nairobi, Kenya</p>
+                    <p><i class="fas fa-envelope"></i> info@anwaarfoundation.com</p>
+                    <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
+                    <p><i class="fas fa-globe"></i> Nairobi & Tana River County</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <nav>
+                    <a href="about.html">About Us</a>
+                    <a href="programs.html">Our Programs</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="get-involved.html">Get Involved</a>
+                    <a href="donate.html">Donate Now</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+            </div>
+            <div class="footer-legal">
+                <h4>Legal</h4>
+                <nav>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Accessibility</a>
+                </nav>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anwaar Foundation. All rights reserved.</p>
+            <p class="registration">Registered Non-Profit - Registration: CLG-K6F7DE</p>
+        </div>
+    </div>
+</footer>
     
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenu">
@@ -606,14 +547,13 @@
             <i class="fas fa-times"></i>
         </button>
         <nav class="mobile-nav">
-            <a href="#home" onclick="toggleMobileMenu()">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()">About Us</a>
-            <a href="#programs" onclick="toggleMobileMenu()">Programs</a>
-            <a href="#impact" onclick="toggleMobileMenu()">Impact</a>
-            <a href="#portfolio" onclick="toggleMobileMenu()">Stories</a>
-            <a href="#partners" onclick="toggleMobileMenu()">Partners</a>
-            <a href="#donate" onclick="toggleMobileMenu()">Donate</a>
-            <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+            <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+            <a href="about.html" onclick="toggleMobileMenu()">About</a>
+            <a href="programs.html" onclick="toggleMobileMenu()">Our Programs</a>
+                        <a href="gallery.html" onclick="toggleMobileMenu()">Gallery</a>
+            <a href="get-involved.html" onclick="toggleMobileMenu()">Get Involved</a>
+            <a href="contact.html" onclick="toggleMobileMenu()">Contact Us</a>
+            <a href="donate.html" onclick="toggleMobileMenu()">Donate</a>
         </nav>
     </div>
     

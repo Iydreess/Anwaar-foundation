@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anwaar Foundation gallery showcasing program moments across relief and empowerment initiatives.">
+    <title>Programs Gallery | Anwaar Foundation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <header class="main-header scrolled" id="mainHeader">
+        <div class="header-container">
+            <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="header-logo"><img src="images/logo.png" alt="Anwaar Foundation"><span class="logo-text">Anwaar Foundation</span></a>
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <div class="nav-dropdown">
+                    <a href="programs.html" class="nav-link dropdown-toggle">Our Programs <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="ramadhan-cooked-meals.html">Ramadhan Cooked Meals</a>
+                        <a href="eid-support-programs.html">Eid Support Programs</a>
+                        <a href="dry-food-distribution.html">Dry Food Distribution</a>
+                        <a href="livelihood-empowerment.html">Livelihood Empowerment</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link active">Gallery</a>
+                <a href="get-involved.html" class="nav-link">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <a href="donate.html" class="btn btn-donate"><i class="fas fa-heart"></i><span>Donate</span></a>
+        </div>
+    </header>
+
+    <main class="gallery-page">
+        <section class="gallery-hero">
+            <img src="images/impact-distribution.jpg" alt="Anwaar Foundation program highlights">
+            <div class="gallery-hero-overlay"></div>
+            <div class="gallery-hero-content container">
+                <h1 data-anim="fade-down">Programs Gallery</h1>
+                <p data-anim="fade-up" data-delay="0.08s">A visual record of relief, dignity, and empowerment in action.</p>
+            </div>
+        </section>
+
+        <section class="gallery-main-block">
+            <div class="container">
+                <div class="gallery-filters" role="tablist" aria-label="Filter gallery by category" data-stagger="0.06">
+                    <button class="gallery-filter-btn active hover-btn-soft" data-filter="all" type="button" aria-selected="true" data-anim="zoom-in">All Works</button>
+                    <button class="gallery-filter-btn hover-btn-soft" data-filter="charity" type="button" aria-selected="false" data-anim="zoom-in">Charity</button>
+                    <button class="gallery-filter-btn hover-btn-soft" data-filter="donation" type="button" aria-selected="false" data-anim="zoom-in">Donation</button>
+                    <button class="gallery-filter-btn hover-btn-soft" data-filter="education" type="button" aria-selected="false" data-anim="zoom-in">Education</button>
+                    <button class="gallery-filter-btn hover-btn-soft" data-filter="poverty" type="button" aria-selected="false" data-anim="zoom-in">Poverty</button>
+                </div>
+
+                <div class="gallery-grid" id="programGalleryGrid" data-stagger="0.08">
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="charity poverty" data-project="Ramadhan Cooked Meals" data-work="Iftar Meal Preparation" data-images="images/program-ramadhan.jpg|Meal preparation and kitchen setup;;images/hero-thumb-2.jpg|Volunteer-led meal handovers;;images/impact-distribution.jpg|Evening distribution support">
+                        <img src="images/program-ramadhan.jpg" alt="Ramadhan cooked meals distribution">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Iftar Meal Preparation</h3>
+                            <p>Charity</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="education" data-project="Livelihood Empowerment" data-work="Skills Mentorship Session" data-images="images/about-team.jpg|Mentorship and practical orientation;;images/stories-3.jpg|Participant progress stories;;images/partners-meeting.jpg|Partner-led coaching review">
+                        <img src="images/about-team.jpg" alt="Livelihood empowerment mentorship session">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Skills Mentorship Session</h3>
+                            <p>Education</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="donation charity" data-project="Eid Support Programs" data-work="Eid-ul-Fitr Family Outreach" data-images="images/program-eid.jpg|Eid support package distribution;;images/stories-1.jpg|Family-centered festive outreach;;images/hero-thumb-1.jpg|Volunteer coordination during Eid">
+                        <img src="images/program-eid.jpg" alt="Eid support outreach for families">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Eid-ul-Fitr Family Outreach</h3>
+                            <p>Donation</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="charity poverty" data-project="Dry Food Distribution" data-work="Household Pack Dispatch" data-images="images/program-dryfood.jpg|Dry food package preparation;;images/impact-distribution.jpg|Household support handovers;;images/hero-thumb-2.jpg|Beneficiary collection points">
+                        <img src="images/program-dryfood.jpg" alt="Dry food household pack dispatch">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Household Pack Dispatch</h3>
+                            <p>Poverty</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="donation charity" data-project="Eid Support Programs" data-work="Eid-ul-Adha Meat Support" data-images="images/stories-2.jpg|Community queue and support logistics;;images/program-eid.jpg|Eid-ul-Adha distribution moments;;images/impact-distribution.jpg|Dignity-first handover process">
+                        <img src="images/stories-2.jpg" alt="Eid-ul-Adha meat support activities">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Eid-ul-Adha Meat Support</h3>
+                            <p>Charity</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="charity poverty" data-project="Dry Food Distribution" data-work="Remote Route Delivery" data-images="images/impact-distribution.jpg|Route loading and dispatch;;images/program-dryfood.jpg|Remote-area food support;;images/stories-3.jpg|Household outreach continuity">
+                        <img src="images/impact-distribution.jpg" alt="Dry food route delivery and handover">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Remote Route Delivery</h3>
+                            <p>Charity</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="education donation" data-project="Livelihood Empowerment" data-work="Business Starter Coaching" data-images="images/stories-3.jpg|Participant training outcomes;;images/about-team.jpg|Mentorship and planning sessions;;images/hero-thumb-1.jpg|Follow-up guidance for households">
+                        <img src="images/stories-3.jpg" alt="Livelihood business starter coaching">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Business Starter Coaching</h3>
+                            <p>Education</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="charity poverty" data-project="Ramadhan Cooked Meals" data-work="Community Iftar Handover" data-images="images/hero-thumb-2.jpg|Children and household support;;images/program-ramadhan.jpg|Daily iftar delivery;;images/stories-1.jpg|Community volunteer mobilization">
+                        <img src="images/hero-thumb-2.jpg" alt="Community iftar handover">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Community Iftar Handover</h3>
+                            <p>Charity</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card hover-card-soft hover-image-zoom" data-anim="fade-up" data-category="education donation" data-project="Livelihood Empowerment" data-work="Partner Coaching Clinics" data-images="images/partners-meeting.jpg|Cross-team planning clinic;;images/about-team.jpg|Technical support sessions;;images/stories-3.jpg|Progress review and impact tracking">
+                        <img src="images/partners-meeting.jpg" alt="Livelihood partner coaching clinic">
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-plus"><i class="fas fa-plus"></i></span>
+                            <h3>Partner Coaching Clinics</h3>
+                            <p>Education</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="gallery-modal" id="galleryModal" aria-hidden="true" role="dialog" aria-labelledby="galleryModalTitle">
+            <div class="gallery-modal-panel" role="document">
+                <button type="button" class="gallery-modal-close" id="galleryModalClose" aria-label="Close gallery module"><i class="fas fa-times"></i></button>
+                <div class="gallery-modal-header">
+                    <span class="eyebrow" id="galleryModalProject">PROGRAM WORK</span>
+                    <h3 id="galleryModalTitle">Project visuals</h3>
+                </div>
+                <div class="gallery-lightbox" id="galleryLightbox">
+                    <button type="button" class="gallery-lightbox-nav prev" id="galleryPrev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                    <figure class="gallery-lightbox-figure">
+                        <img id="galleryLightboxImage" src="images/program-ramadhan.jpg" alt="Project preview image">
+                        <figcaption id="galleryLightboxCaption">Project image caption</figcaption>
+                    </figure>
+                    <button type="button" class="gallery-lightbox-nav next" id="galleryNext" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="gallery-lightbox-meta">
+                    <span class="gallery-lightbox-counter" id="galleryLightboxCounter">1 / 3</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="closing-section">
+            <div class="closing-content" data-stagger="0.08">
+                <h2 data-anim="fade-up">See impact. Join impact.</h2>
+                <p class="programs-cta-text" data-anim="fade-up">Every image reflects a family reached, a volunteer mobilized, and a community supported.</p>
+                <div class="programs-cta-actions">
+                    <a href="donate.html" class="btn btn-primary hover-btn-soft" data-anim="zoom-in">Donate Now</a>
+                    <a href="get-involved.html" class="btn btn-outline hover-btn-soft" data-anim="zoom-in">Get Involved</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.png" alt="Anwaar Foundation">
+                    <span>Anwaar Foundation</span>
+                </a>
+                <p class="footer-tagline">Humanitarian relief - Community empowerment - Sustainable impact</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <div class="contact-details">
+                    <p><i class="fas fa-map-marker-alt"></i> Anwar Centre, Lang'ata Road<br>Nairobi, Kenya</p>
+                    <p><i class="fas fa-envelope"></i> info@anwaarfoundation.com</p>
+                    <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
+                    <p><i class="fas fa-globe"></i> Nairobi & Tana River County</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <nav>
+                    <a href="about.html">About Us</a>
+                    <a href="programs.html">Our Programs</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="get-involved.html">Get Involved</a>
+                    <a href="donate.html">Donate Now</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+            </div>
+            <div class="footer-legal">
+                <h4>Legal</h4>
+                <nav>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Accessibility</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anwaar Foundation. All rights reserved.</p>
+            <p class="registration">Registered Non-Profit - Registration: CLG-K6F7DE</p>
+        </div>
+    </div>
+</footer>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+        <nav class="mobile-nav">
+            <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+            <a href="about.html" onclick="toggleMobileMenu()">About</a>
+            <a href="programs.html" onclick="toggleMobileMenu()">Our Programs</a>
+            <a href="gallery.html" onclick="toggleMobileMenu()">Gallery</a>
+            <a href="get-involved.html" onclick="toggleMobileMenu()">Get Involved</a>
+            <a href="contact.html" onclick="toggleMobileMenu()">Contact Us</a>
+            <a href="donate.html" onclick="toggleMobileMenu()">Donate</a>
+        </nav>
+    </div>
+
+    <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage">Message sent successfully!</span></div>
+    <script src="js/main.js"></script>
+</body>
+</html>
