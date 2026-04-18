@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Support Anwaar Foundation through one-time and monthly donations.">
-    <title>Donate | Anwaar Foundation</title>
+        <title>Donate to Anwaar Foundation | Support Humanitarian Aid in Kenya</title>
+        <meta name="description" content="Make a secure donation to Anwaar Foundation and help fund food relief, social welfare, and sustainable livelihood support for vulnerable communities across Kenya.">
+        <meta name="keywords" content="donate NGO Kenya, donate Anwaar Foundation, charity donation Nairobi, humanitarian aid donation Kenya, food relief donation, monthly giving nonprofit, support vulnerable families Kenya">
+        <meta name="author" content="Anwaar Foundation">
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        <meta name="language" content="en">
+        <meta name="geo.region" content="KE-30">
+        <meta name="geo.placename" content="Nairobi, Kenya">
+        <meta name="geo.position" content="-1.2921;36.8219">
+        <meta name="ICBM" content="-1.2921, 36.8219">
+        <link rel="canonical" href="https://anwaarfoundation.com/donate.html">
+
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="en_KE">
+        <meta property="og:site_name" content="Anwaar Foundation">
+        <meta property="og:title" content="Donate to Anwaar Foundation | Support Humanitarian Aid in Kenya">
+        <meta property="og:description" content="Your donation helps deliver food support, welfare assistance, and livelihood pathways for families facing hardship in Nairobi, Tana River, and underserved regions.">
+        <meta property="og:url" content="https://anwaarfoundation.com/donate.html">
+        <meta property="og:image" content="https://anwaarfoundation.com/images/impact-distribution.jpg">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Donate to Anwaar Foundation | Support Humanitarian Aid in Kenya">
+        <meta name="twitter:description" content="Contribute to high-impact humanitarian programs and help vulnerable communities build resilience and dignity.">
+        <meta name="twitter:image" content="https://anwaarfoundation.com/images/impact-distribution.jpg">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "DonateAction",
+            "name": "Donate to Anwaar Foundation",
+            "target": "https://anwaarfoundation.com/donate.html",
+            "recipient": {
+                "@type": "NGO",
+                "name": "Anwaar Foundation"
+            },
+            "description": "Donation page supporting Anwaar Foundation humanitarian and livelihood programs in Kenya."
+        }
+        </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -85,14 +121,20 @@
                         <h2 data-anim="fade-up">Choose your amount and giving type</h2>
                         <p data-anim="fade-up">100% of public donations support program delivery and outreach operations.</p>
                     </div>
+                    <div class="donation-currency-switch" role="group" aria-label="Select donation currency">
+                        <button type="button" class="currency-btn active" data-currency="USD" aria-pressed="true">USD</button>
+                        <button type="button" class="currency-btn" data-currency="KES" aria-pressed="false">KES</button>
+                    </div>
+                    <p class="donation-rate" id="donationExchangeRate">Exchange rate: 1 USD = 130 KES</p>
                     <div class="donation-options" role="group" aria-label="Select donation amount" data-stagger="0.06">
-                        <button class="donation-amount hover-btn-soft" data-amount="10" data-anim="zoom-in">$10</button>
-                        <button class="donation-amount hover-btn-soft" data-amount="25" data-anim="zoom-in">$25</button>
-                        <button class="donation-amount active hover-btn-soft" data-amount="50" data-anim="zoom-in">$50</button>
-                        <button class="donation-amount hover-btn-soft" data-amount="100" data-anim="zoom-in">$100</button>
-                        <button class="donation-amount hover-btn-soft" data-amount="250" data-anim="zoom-in">$250</button>
+                        <button class="donation-amount hover-btn-soft" data-amount-usd="10" data-anim="zoom-in">$10</button>
+                        <button class="donation-amount hover-btn-soft" data-amount-usd="25" data-anim="zoom-in">$25</button>
+                        <button class="donation-amount active hover-btn-soft" data-amount-usd="50" data-anim="zoom-in">$50</button>
+                        <button class="donation-amount hover-btn-soft" data-amount-usd="100" data-anim="zoom-in">$100</button>
+                        <button class="donation-amount hover-btn-soft" data-amount-usd="250" data-anim="zoom-in">$250</button>
                         <button class="donation-amount custom hover-btn-soft" data-anim="zoom-in">Custom</button>
                     </div>
+                    <p class="donation-selected-equivalent" id="donationSelectedEquivalent"></p>
                     <div class="donation-type" role="radiogroup" aria-label="Donation frequency">
                         <label class="radio-label"><input type="radio" name="donation-type" value="one-time" checked><span>One-time gift</span></label>
                         <label class="radio-label"><input type="radio" name="donation-type" value="monthly"><span>Monthly support</span></label>
@@ -220,6 +262,27 @@
             <a href="contact.html" onclick="toggleMobileMenu()">Contact Us</a>
             <a href="donate.html" onclick="toggleMobileMenu()">Donate</a>
         </nav>
+    </div>
+
+    <div class="donate-custom-modal" id="customAmountModal" aria-hidden="true" role="dialog" aria-labelledby="customAmountTitle">
+        <div class="donate-custom-panel" role="document">
+            <button type="button" class="donate-custom-close" id="customAmountClose" aria-label="Close custom amount modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <span class="eyebrow">CUSTOM DONATION</span>
+            <h3 id="customAmountTitle">Enter your donation amount</h3>
+            <p class="donate-custom-copy">Set a one-time or monthly amount in USD to continue with secure giving.</p>
+
+            <label class="donate-custom-label" id="customAmountLabel" for="customAmountInput">Amount (USD)</label>
+            <input type="number" id="customAmountInput" class="donate-custom-input" min="1" step="1" placeholder="e.g. 75" inputmode="decimal">
+            <p class="donate-custom-hint" id="customAmountHint">Minimum amount is $1.</p>
+            <p class="donate-custom-error" id="customAmountError" aria-live="polite"></p>
+
+            <div class="donate-custom-actions">
+                <button type="button" class="btn btn-outline hover-btn-soft" id="customAmountCancel">Cancel</button>
+                <button type="button" class="btn btn-primary hover-btn-soft" id="customAmountSave">Use amount</button>
+            </div>
+        </div>
     </div>
 
     <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage">Message sent successfully!</span></div>

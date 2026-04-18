@@ -7,9 +7,10 @@
 // DOM READY
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
+    initPageEntryFade();
     initHeaderScroll();
+    initHeroKenBurnsSlider();
     initLenisSmoothScroll();
-    initThumbnailSlider();
     initSmoothScroll();
     initCounterAnimation();
     initDonationAmounts();
@@ -21,6 +22,17 @@ document.addEventListener('DOMContentLoaded', function() {
     initGalleryFilters();
     initGalleryProjectModal();
 });
+
+function initPageEntryFade() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const isHomePage = currentPath === 'index.html' || currentPath === 'index.php';
+
+    if (isHomePage) return;
+
+    document.body.classList.add('page-entry-fade');
+}
 
 // ============================================
 // HEADER SCROLL EFFECT
@@ -48,20 +60,77 @@ function initHeaderScroll() {
     window.addEventListener('scroll', updateHeaderState, { passive: true });
 }
 
-// ============================================
-// THUMBNAIL SLIDER (Hero Section)
-// ============================================
-function initThumbnailSlider() {
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    if (thumbnails.length === 0) return;
-    
+function initHeroKenBurnsSlider() {
+    const heroSection = document.querySelector('.hero-section');
+    if (!heroSection) return;
+
+    const slides = Array.from(heroSection.querySelectorAll('.hero-slide'));
+    if (slides.length === 0) return;
+
+    const heroEyebrow = heroSection.querySelector('[data-hero-copy="eyebrow"]');
+    const heroHeadline = heroSection.querySelector('[data-hero-copy="headline"]');
+    const heroSubheadline = heroSection.querySelector('[data-hero-copy="subheadline"]');
+    const heroBody = heroSection.querySelector('[data-hero-copy="body"]');
+
+    function applySlideCopy(slide) {
+        if (!slide) return;
+
+        if (heroEyebrow && slide.dataset.heroEyebrow) {
+            heroEyebrow.textContent = slide.dataset.heroEyebrow;
+        }
+
+        if (heroHeadline && slide.dataset.heroHeadline) {
+            heroHeadline.textContent = slide.dataset.heroHeadline;
+        }
+
+        if (heroSubheadline && slide.dataset.heroSubheadline) {
+            heroSubheadline.textContent = slide.dataset.heroSubheadline;
+        }
+
+        if (heroBody && slide.dataset.heroBody) {
+            heroBody.textContent = slide.dataset.heroBody;
+        }
+    }
+
+    function replayHeroText() {
+        heroSection.classList.remove('hero-text-animate');
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                heroSection.classList.add('hero-text-animate');
+            });
+        });
+    }
+
+    slides.forEach((slide, index) => {
+        slide.classList.toggle('is-active', index === 0);
+    });
+
+    applySlideCopy(slides[0]);
+    replayHeroText();
+
+    if (slides.length === 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
     let currentIndex = 0;
-    
+    const switchIntervalMs = 7600;
+
     setInterval(() => {
-        thumbnails[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % thumbnails.length;
-        thumbnails[currentIndex].classList.add('active');
-    }, 4000);
+        const currentSlide = slides[currentIndex];
+        const nextIndex = (currentIndex + 1) % slides.length;
+        const nextSlide = slides[nextIndex];
+
+        currentSlide.classList.remove('is-active');
+        nextSlide.classList.remove('is-active');
+
+        // Force reflow so the Ken Burns animation restarts each time a slide becomes active.
+        void nextSlide.offsetWidth;
+        nextSlide.classList.add('is-active');
+
+        applySlideCopy(nextSlide);
+        replayHeroText();
+        currentIndex = nextIndex;
+    }, switchIntervalMs);
 }
 
 // ============================================
@@ -108,10 +177,10 @@ function initSmoothScroll() {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
-            
+
             e.preventDefault();
             const target = document.querySelector(href);
-            
+
             if (target) {
                 const headerHeight = document.getElementById('mainHeader').offsetHeight;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
@@ -135,7 +204,7 @@ function initSmoothScroll() {
 function initCounterAnimation() {
     const counters = document.querySelectorAll('.stat-number');
     if (counters.length === 0) return;
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -185,31 +254,229 @@ function animateCounter(element, target) {
 // DONATION AMOUNT SELECTION
 // ============================================
 function initDonationAmounts() {
-    const amountButtons = document.querySelectorAll('.donation-amount');
-    
-    amountButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            amountButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Handle custom amount
-            if (this.classList.contains('custom')) {
-                const customAmount = prompt('Enter custom amount (USD):');
-                if (customAmount && !isNaN(customAmount) && customAmount > 0) {
-                    this.textContent = '$' + parseInt(customAmount);
-                    this.setAttribute('data-amount', customAmount);
+    const amountButtons = Array.from(document.querySelectorAll('.donation-amount'));
+    const customButton = document.querySelector('.donation-amount.custom');
+    const currencyButtons = Array.from(document.querySelectorAll('.currency-btn'));
+    const exchangeRateLabel = document.getElementById('donationExchangeRate');
+    const selectedEquivalent = document.getElementById('donationSelectedEquivalent');
+    const customModal = document.getElementById('customAmountModal');
+    const customInput = document.getElementById('customAmountInput');
+    const customSave = document.getElementById('customAmountSave');
+    const customCancel = document.getElementById('customAmountCancel');
+    const customClose = document.getElementById('customAmountClose');
+    const customLabel = document.getElementById('customAmountLabel');
+    const customHint = document.getElementById('customAmountHint');
+    const customError = document.getElementById('customAmountError');
+    const exchangeRate = 130;
+    let selectedCurrency = 'USD';
+
+    if (amountButtons.length === 0) return;
+
+    function formatNumber(value, decimals = 0) {
+        return Number(value).toLocaleString('en-US', {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals
+        });
+    }
+
+    function formatUsd(value) {
+        const rounded = Math.round(Number(value) * 100) / 100;
+        const decimals = Number.isInteger(rounded) ? 0 : 2;
+        return `$${formatNumber(rounded, decimals)}`;
+    }
+
+    function formatKesFromUsd(value) {
+        const kes = Math.round(Number(value) * exchangeRate);
+        return `KES ${formatNumber(kes)}`;
+    }
+
+    function getActiveAmountUsd() {
+        const activeAmountButton = document.querySelector('.donation-amount.active');
+        if (!activeAmountButton) return null;
+
+        const usdAmount = Number(activeAmountButton.getAttribute('data-amount-usd'));
+        return Number.isFinite(usdAmount) && usdAmount > 0 ? usdAmount : null;
+    }
+
+    function renderAmountLabels() {
+        amountButtons.forEach((button) => {
+            if (button.classList.contains('custom')) {
+                const customUsd = Number(button.getAttribute('data-amount-usd'));
+                if (Number.isFinite(customUsd) && customUsd > 0) {
+                    button.textContent = selectedCurrency === 'USD' ? formatUsd(customUsd) : formatKesFromUsd(customUsd);
                 } else {
-                    // Revert to default if invalid
-                    amountButtons[2].classList.add('active');
-                    this.classList.remove('active');
-                    this.textContent = 'Custom';
+                    button.textContent = 'Custom';
                 }
+                return;
             }
+
+            const usdValue = Number(button.getAttribute('data-amount-usd'));
+            if (!Number.isFinite(usdValue) || usdValue <= 0) return;
+
+            button.textContent = selectedCurrency === 'USD' ? formatUsd(usdValue) : formatKesFromUsd(usdValue);
+        });
+    }
+
+    function renderSelectedEquivalent() {
+        if (!selectedEquivalent) return;
+
+        const activeUsd = getActiveAmountUsd();
+        if (!activeUsd) {
+            selectedEquivalent.textContent = '';
+            return;
+        }
+
+        if (selectedCurrency === 'USD') {
+            selectedEquivalent.textContent = `Approx. ${formatKesFromUsd(activeUsd)}`;
+        } else {
+            selectedEquivalent.textContent = `Approx. ${formatUsd(activeUsd)}`;
+        }
+    }
+
+    function syncCustomModalCurrencyText() {
+        if (customLabel) {
+            customLabel.textContent = selectedCurrency === 'USD' ? 'Amount (USD)' : 'Amount (KES)';
+        }
+
+        if (customHint) {
+            customHint.textContent = selectedCurrency === 'USD' ? 'Minimum amount is $1.' : `Minimum amount is KES ${formatNumber(exchangeRate)}.`;
+        }
+
+        if (customInput) {
+            customInput.min = selectedCurrency === 'USD' ? '1' : String(exchangeRate);
+            customInput.step = selectedCurrency === 'USD' ? '0.01' : '1';
+            customInput.placeholder = selectedCurrency === 'USD' ? 'e.g. 75' : 'e.g. 5000';
+        }
+    }
+
+    function setActiveButton(button) {
+        amountButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        renderSelectedEquivalent();
+    }
+
+    function closeCustomAmountModal() {
+        if (!customModal) return;
+        customModal.classList.remove('active');
+        customModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (customError) customError.textContent = '';
+    }
+
+    function openCustomAmountModal() {
+        if (!customModal || !customInput) return;
+
+        syncCustomModalCurrencyText();
+
+        const existingAmount = Number(customButton ? customButton.getAttribute('data-amount-usd') : '');
+        if (Number.isFinite(existingAmount) && existingAmount > 0) {
+            const initialValue = selectedCurrency === 'USD'
+                ? (Math.round(existingAmount * 100) / 100)
+                : Math.round(existingAmount * exchangeRate);
+            customInput.value = String(initialValue);
+        } else {
+            customInput.value = '';
+        }
+
+        if (customError) customError.textContent = '';
+
+        customModal.classList.add('active');
+        customModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        requestAnimationFrame(() => {
+            customInput.focus();
+            customInput.select();
+        });
+    }
+
+    amountButtons.forEach((button) => {
+        button.addEventListener('click', function() {
+            if (this.classList.contains('custom')) {
+                openCustomAmountModal();
+                return;
+            }
+            setActiveButton(this);
         });
     });
+
+    if (!customButton || !customModal || !customInput || !customSave || !customCancel || !customClose) {
+        if (exchangeRateLabel) exchangeRateLabel.textContent = `Exchange rate: 1 USD = ${formatNumber(exchangeRate)} KES`;
+        renderAmountLabels();
+        renderSelectedEquivalent();
+        return;
+    }
+
+    if (currencyButtons.length > 0) {
+        currencyButtons.forEach((button) => {
+            button.addEventListener('click', function() {
+                selectedCurrency = this.getAttribute('data-currency') || 'USD';
+
+                currencyButtons.forEach((btn) => {
+                    const isActive = btn === this;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
+                renderAmountLabels();
+                renderSelectedEquivalent();
+                syncCustomModalCurrencyText();
+            });
+        });
+    }
+
+    if (exchangeRateLabel) {
+        exchangeRateLabel.textContent = `Exchange rate: 1 USD = ${formatNumber(exchangeRate)} KES`;
+    }
+
+    customSave.addEventListener('click', function() {
+        const enteredValue = Number.parseFloat(customInput.value);
+        const minimum = selectedCurrency === 'USD' ? 1 : exchangeRate;
+        const isValid = Number.isFinite(enteredValue) && enteredValue >= minimum;
+
+        if (!isValid) {
+            if (customError) {
+                customError.textContent = selectedCurrency === 'USD'
+                    ? 'Please enter at least $1.'
+                    : `Please enter at least KES ${formatNumber(exchangeRate)}.`;
+            }
+            customInput.focus();
+            return;
+        }
+
+        const normalizedUsd = selectedCurrency === 'USD'
+            ? (Math.round(enteredValue * 100) / 100)
+            : (Math.round((enteredValue / exchangeRate) * 100) / 100);
+
+        customButton.setAttribute('data-amount-usd', String(normalizedUsd));
+        renderAmountLabels();
+        setActiveButton(customButton);
+        closeCustomAmountModal();
+    });
+
+    customCancel.addEventListener('click', closeCustomAmountModal);
+    customClose.addEventListener('click', closeCustomAmountModal);
+
+    customModal.addEventListener('click', function(event) {
+        if (event.target === customModal) {
+            closeCustomAmountModal();
+        }
+    });
+
+    customInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            customSave.click();
+        }
+
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeCustomAmountModal();
+        }
+    });
+
+    renderAmountLabels();
+    renderSelectedEquivalent();
 }
 
 // ============================================
@@ -217,18 +484,29 @@ function initDonationAmounts() {
 // ============================================
 function processDonation() {
     const activeAmount = document.querySelector('.donation-amount.active');
+    const activeCurrencyBtn = document.querySelector('.currency-btn.active');
     const donationType = document.querySelector('input[name="donation-type"]:checked').value;
+    const exchangeRate = 130;
     
     if (!activeAmount) {
         showToast('Please select a donation amount', 'error');
         return;
     }
     
-    const amount = activeAmount.getAttribute('data-amount');
+    const amountUsd = Number(activeAmount.getAttribute('data-amount-usd'));
+    if (!Number.isFinite(amountUsd) || amountUsd <= 0) {
+        showToast('Please select a valid donation amount', 'error');
+        return;
+    }
+
+    const selectedCurrency = activeCurrencyBtn ? (activeCurrencyBtn.getAttribute('data-currency') || 'USD') : 'USD';
+    const amountDisplay = selectedCurrency === 'KES'
+        ? `KES ${Math.round(amountUsd * exchangeRate).toLocaleString('en-US')} (USD $${(Math.round(amountUsd * 100) / 100).toLocaleString('en-US')})`
+        : `USD $${(Math.round(amountUsd * 100) / 100).toLocaleString('en-US')}`;
     const type = donationType === 'monthly' ? 'monthly' : 'one-time';
     
     // Show confirmation message
-    showToast(`Thank you! Redirecting to secure payment for $${amount} ${type} donation...`);
+    showToast(`Thank you! Redirecting to secure payment for ${amountDisplay} ${type} donation...`);
     
     // In a real implementation, this would redirect to a payment processor
     // Example: window.location.href = `/payment?amount=${amount}&type=${type}`;
@@ -430,11 +708,16 @@ function initGalleryFilters() {
             applyFilter(filterValue);
         });
     });
+
+    const initiallyActive = filterButtons.find((btn) => btn.classList.contains('active'));
+    const initialFilter = ((initiallyActive && initiallyActive.getAttribute('data-filter')) || 'all').toLowerCase();
+    applyFilter(initialFilter);
 }
 
 function initGalleryProjectModal() {
     const cards = Array.from(document.querySelectorAll('.gallery-grid .gallery-card'));
     const modal = document.getElementById('galleryModal');
+    const modalPanel = modal ? modal.querySelector('.gallery-modal-panel') : null;
     const modalTitle = document.getElementById('galleryModalTitle');
     const modalProject = document.getElementById('galleryModalProject');
     const modalClose = document.getElementById('galleryModalClose');
@@ -447,6 +730,7 @@ function initGalleryProjectModal() {
     if (
         cards.length === 0 ||
         !modal ||
+        !modalPanel ||
         !modalTitle ||
         !modalProject ||
         !modalClose ||
@@ -515,7 +799,12 @@ function initGalleryProjectModal() {
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        modalPanel.scrollTop = 0;
         isModalOpen = true;
+
+        requestAnimationFrame(() => {
+            modalClose.focus();
+        });
     }
 
     cards.forEach((card) => {

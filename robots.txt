@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Canonical host directives
+Host: anwaarfoundation.com
+
+# Sitemap location
+Sitemap: https://anwaarfoundation.com/sitemap.xml
