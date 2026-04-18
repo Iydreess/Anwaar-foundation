@@ -3777,6 +3777,35 @@ a {
         flex-direction: column;
     }
 
+    .donate-custom-modal {
+        place-items: center;
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+    .donate-custom-panel {
+        width: min(96vw, 520px);
+        max-height: 88vh;
+        overflow: auto;
+        padding: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .donate-custom-close {
+        width: 34px;
+        height: 34px;
+        right: 0.7rem;
+        top: 0.7rem;
+    }
+
+    .donate-custom-actions {
+        justify-content: stretch;
+    }
+
+    .donate-custom-actions .btn {
+        width: 100%;
+    }
+
     .about-partners-logos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -3798,6 +3827,26 @@ a {
 @media (max-width: 480px) {
     .about-partners-logos {
         grid-template-columns: 1fr;
+    }
+
+    .donate-custom-modal {
+        padding: 8px;
+    }
+
+    .donate-custom-panel {
+        width: 100%;
+        max-height: 90vh;
+        padding: 0.9rem;
+    }
+
+    .donate-custom-panel h3 {
+        font-size: 26px;
+        line-height: 1.1;
+        margin-right: 2.2rem;
+    }
+
+    .donate-custom-copy {
+        font-size: 13px;
     }
 }
 

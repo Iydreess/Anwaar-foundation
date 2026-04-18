@@ -266,6 +266,7 @@ function initDonationAmounts() {
     const customClose = document.getElementById('customAmountClose');
     const customLabel = document.getElementById('customAmountLabel');
     const customHint = document.getElementById('customAmountHint');
+    const customCopy = document.getElementById('customAmountCopy');
     const customError = document.getElementById('customAmountError');
     const exchangeRate = 130;
     let selectedCurrency = 'USD';
@@ -340,6 +341,12 @@ function initDonationAmounts() {
 
         if (customHint) {
             customHint.textContent = selectedCurrency === 'USD' ? 'Minimum amount is $1.' : `Minimum amount is KES ${formatNumber(exchangeRate)}.`;
+        }
+
+        if (customCopy) {
+            customCopy.textContent = selectedCurrency === 'USD'
+                ? 'Set a one-time or monthly amount in USD to continue with secure giving.'
+                : 'Set a one-time or monthly amount in KES to continue with secure giving.';
         }
 
         if (customInput) {
