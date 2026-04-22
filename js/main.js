@@ -101,8 +101,25 @@ function initHeroKenBurnsSlider() {
         });
     }
 
+    function setVideoPlayback(slide, shouldPlay) {
+        if (!(slide instanceof HTMLVideoElement)) return;
+
+        if (shouldPlay) {
+            slide.currentTime = 0;
+            const playAttempt = slide.play();
+            if (playAttempt && typeof playAttempt.catch === 'function') {
+                playAttempt.catch(() => {});
+            }
+            return;
+        }
+
+        slide.pause();
+        slide.currentTime = 0;
+    }
+
     slides.forEach((slide, index) => {
         slide.classList.toggle('is-active', index === 0);
+        setVideoPlayback(slide, index === 0);
     });
 
     applySlideCopy(slides[0]);
@@ -113,24 +130,39 @@ function initHeroKenBurnsSlider() {
     }
 
     let currentIndex = 0;
-    const switchIntervalMs = 7600;
+    const imageSwitchIntervalMs = 7600;
+    const videoSwitchIntervalMs = 30000;
 
-    setInterval(() => {
+    function getSlideDurationMs(slide) {
+        return slide instanceof HTMLVideoElement ? videoSwitchIntervalMs : imageSwitchIntervalMs;
+    }
+
+    function queueNextSlide() {
+        const currentSlide = slides[currentIndex];
+        const delayMs = getSlideDurationMs(currentSlide);
+
+        setTimeout(() => {
         const currentSlide = slides[currentIndex];
         const nextIndex = (currentIndex + 1) % slides.length;
         const nextSlide = slides[nextIndex];
 
         currentSlide.classList.remove('is-active');
+        setVideoPlayback(currentSlide, false);
         nextSlide.classList.remove('is-active');
 
         // Force reflow so the Ken Burns animation restarts each time a slide becomes active.
         void nextSlide.offsetWidth;
         nextSlide.classList.add('is-active');
+        setVideoPlayback(nextSlide, true);
 
         applySlideCopy(nextSlide);
         replayHeroText();
         currentIndex = nextIndex;
-    }, switchIntervalMs);
+            queueNextSlide();
+        }, delayMs);
+    }
+
+    queueNextSlide();
 }
 
 // ============================================

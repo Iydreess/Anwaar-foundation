@@ -526,6 +526,11 @@ a {
     animation: heroKenBurns 10.5s ease-out forwards;
 }
 
+.hero-slide-video.is-active {
+    animation: none;
+    transform: scale(1);
+}
+
 @keyframes heroKenBurns {
     0% {
         transform: scale(1) translate3d(var(--kb-x0, 0%), var(--kb-y0, 0%), 0);
