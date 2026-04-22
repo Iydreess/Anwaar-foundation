@@ -104,11 +104,25 @@ function initHeroKenBurnsSlider() {
     function setVideoPlayback(slide, shouldPlay) {
         if (!(slide instanceof HTMLVideoElement)) return;
 
+        slide.muted = true;
+        slide.setAttribute('muted', '');
+        slide.setAttribute('playsinline', '');
+        slide.setAttribute('webkit-playsinline', '');
+
         if (shouldPlay) {
             slide.currentTime = 0;
             const playAttempt = slide.play();
             if (playAttempt && typeof playAttempt.catch === 'function') {
-                playAttempt.catch(() => {});
+                playAttempt.catch(() => {
+                    const retryPlay = () => {
+                        const retryAttempt = slide.play();
+                        if (retryAttempt && typeof retryAttempt.catch === 'function') {
+                            retryAttempt.catch(() => {});
+                        }
+                    };
+
+                    slide.addEventListener('canplay', retryPlay, { once: true });
+                });
             }
             return;
         }
