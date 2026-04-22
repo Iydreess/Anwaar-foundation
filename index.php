@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,7 +42,7 @@
                     <span class="eyebrow">ANWAAR FOUNDATION</span>
                     <h1 class="hero-headline">Humanitarian relief.</h1>
                     <p class="hero-subheadline">Community empowerment. Sustainable impact.</p>
-                    <p class="hero-body">We work with vulnerable communities in Kenya—providing food, restoring dignity, and building resilient livelihoods.</p>
+                    <p class="hero-body">We work with vulnerable communities in Kenyaâ€”providing food, restoring dignity, and building resilient livelihoods.</p>
                     <div class="hero-ctas">
                         <a href="donate.html" class="btn btn-primary">Donate Now</a>
                         <a href="programs.html" class="btn btn-secondary">Our Programs</a>
@@ -59,7 +59,7 @@
             </div>
             
             <div class="hero-microcopy">
-                <span>Registered nonprofit • Nairobi & Tana River</span>
+                <span>Registered nonprofit â€¢ Nairobi & Tana River</span>
             </div>
             
             <div class="scroll-hint">
@@ -74,7 +74,7 @@
                 <div class="section-header">
                     <span class="eyebrow">WHAT WE DO</span>
                     <h2>Relief, dignity, and long-term resilience.</h2>
-                    <p>We combine immediate assistance with programs that help communities rebuild—fairly, transparently, and together.</p>
+                    <p>We combine immediate assistance with programs that help communities rebuildâ€”fairly, transparently, and together.</p>
                 </div>
                 
                 <div class="pillars-grid">
@@ -113,7 +113,7 @@
                         <span class="eyebrow">ABOUT US</span>
                         <h2>Founded in 2021, rooted in the community.</h2>
                         <p>Anwaar Foundation is a Kenyan nonprofit delivering humanitarian relief and sustainable development. We prioritize dignity, inclusion, and measurable outcomes.</p>
-                        <p>Our name means <em>light</em>—reflecting the hope we bring to vulnerable households across Nairobi and Tana River.</p>
+                        <p>Our name means <em>light</em>â€”reflecting the hope we bring to vulnerable households across Nairobi and Tana River.</p>
                         
                         <div class="vision-mission">
                             <div class="vm-item">
@@ -132,7 +132,7 @@
                     <div class="about-image">
                         <img src="images/about-team.jpg" alt="Anwaar Foundation team in the field">
                         <div class="image-caption">
-                            <span>Field coordination • Tana River</span>
+                            <span>Field coordination â€¢ Tana River</span>
                         </div>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                         <div class="stats-grid">
                             <div class="stat-item">
                                 <span class="stat-number" data-count="3000">0</span>
-                                <span class="stat-suffix">–3,500</span>
+                                <span class="stat-suffix">â€“3,500</span>
                                 <span class="stat-label">Ramadhan meals served</span>
                             </div>
                             <div class="stat-item">
@@ -289,19 +289,19 @@
                     <div class="story-item story-large">
                         <img src="images/stories-1.jpg" alt="Food distribution">
                         <div class="story-caption">
-                            <span>Food distribution • Tana River</span>
+                            <span>Food distribution â€¢ Tana River</span>
                         </div>
                     </div>
                     <div class="story-item story-small">
                         <img src="images/stories-2.jpg" alt="Community kitchen">
                         <div class="story-caption">
-                            <span>Community kitchen • Nairobi</span>
+                            <span>Community kitchen â€¢ Nairobi</span>
                         </div>
                     </div>
                     <div class="story-item story-small">
                         <img src="images/stories-3.jpg" alt="Livelihood training">
                         <div class="story-caption">
-                            <span>Livelihood training • Field visit</span>
+                            <span>Livelihood training â€¢ Field visit</span>
                         </div>
                     </div>
                 </div>
@@ -502,7 +502,7 @@
         <!-- Section 12: Closing Statement -->
         <section class="closing-section">
             <div class="closing-content">
-                <h2>Light, relief, and lasting change—delivered with dignity.</h2>
+                <h2>Light, relief, and lasting changeâ€”delivered with dignity.</h2>
             </div>
         </section>
     </main>
@@ -535,3 +535,4 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+

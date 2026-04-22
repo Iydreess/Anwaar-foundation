@@ -1,4 +1,4 @@
-<!-- Header / Navigation -->
+﻿<!-- Header / Navigation -->
 <header class="main-header" id="mainHeader">
     <div class="header-container">
         <!-- Mobile Menu Button -->
@@ -37,3 +37,4 @@
         </a>
     </div>
 </header>
+

@@ -1,4 +1,4 @@
-<!-- Footer -->
+﻿<!-- Footer -->
 <footer class="main-footer">
     <div class="container">
         <div class="footer-grid">
@@ -8,12 +8,12 @@
                     <img src="images/logo.png" alt="Anwaar Foundation">
                     <span>Anwaar Foundation</span>
                 </a>
-                <p class="footer-tagline">Humanitarian relief • Community empowerment • Sustainable impact</p>
+                <p class="footer-tagline">Humanitarian relief â€¢ Community empowerment â€¢ Sustainable impact</p>
                 
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61588544056887" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@masjidanwaarkaren" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/anwaarfoundation/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
@@ -23,10 +23,10 @@
             <div class="footer-contact">
                 <h4>Contact Us</h4>
                 <div class="contact-details">
-                    <p><i class="fas fa-map-marker-alt"></i> Anwar Centre, Lang'ata Road<br>Nairobi, Kenya</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Karen, Nairobi, Kenya</p>
                     <p><i class="fas fa-envelope"></i> info@anwaarfoundation.com</p>
-                    <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
-                    <p><i class="fas fa-globe"></i> Nairobi & Tana River County</p>
+                    <p><i class="fas fa-phone"></i> +254721773857 / +254725965060</p>
+                    <p><i class="fas fa-globe"></i> Karen, Nairobi, Kenya</p>
                 </div>
             </div>
             
@@ -57,7 +57,8 @@
         
         <div class="footer-bottom">
             <p>&copy; <?php echo date('Y'); ?> Anwaar Foundation. All rights reserved.</p>
-            <p class="registration">Registered Non-Profit • Registration: CLG-K6F7DE</p>
+            <p class="registration">Registered Non-Profit â€¢ Registration: CLG-K6F7DE</p>
         </div>
     </div>
 </footer>
+
