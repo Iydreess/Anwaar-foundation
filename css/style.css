@@ -2959,6 +2959,57 @@ a {
     margin-bottom: 0.45rem;
 }
 
+.manual-donation-card {
+    border-color: rgba(11, 58, 46, 0.22);
+}
+
+.manual-donation-intro {
+    margin: 0 0 0.75rem;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.manual-donation-details {
+    display: grid;
+    gap: 0.42rem;
+    padding: 0.8rem 0.85rem;
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+    border-radius: 4px;
+    margin-bottom: 0.9rem;
+}
+
+.manual-donation-details p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.manual-donation-card h4 {
+    margin: 0 0 0.55rem;
+    font-size: 16px;
+}
+
+.manual-donation-steps {
+    margin: 0 0 0.95rem 1.15rem;
+    padding: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.manual-donation-steps li {
+    margin-bottom: 0.38rem;
+}
+
+.manual-donation-note {
+    margin: 0 0 0.9rem;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
 .donate-faq-list {
     display: grid;
     gap: 0.7rem;

@@ -579,10 +579,30 @@ function showMonthlyInfo(event) {
     showToast('Monthly giving helps us plan ahead and reach more communities. Select "Monthly" and choose your amount.');
 }
 
+function inferContactSubmissionType(form) {
+    const currentPath = window.location.pathname.split('/').pop() || '';
+
+    if (currentPath.toLowerCase() === 'contact.html') {
+        return 'contact-inquiry';
+    }
+
+    const volunteerPanel = form.closest('#volunteer-signup');
+    if (volunteerPanel) {
+        return 'volunteer-application';
+    }
+
+    const partnershipPanel = form.closest('#partnership-inquiry');
+    if (partnershipPanel) {
+        return 'partnership-inquiry';
+    }
+
+    return 'general-inquiry';
+}
+
 // ============================================
 // CONTACT FORM HANDLER
 // ============================================
-function handleContactSubmit(event) {
+async function handleContactSubmit(event) {
     event.preventDefault();
     
     const form = event.target;
@@ -604,29 +624,55 @@ function handleContactSubmit(event) {
         showToast('Please enter a valid email address', 'error');
         return;
     }
-    
-    // Simulate form submission
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) submitButton.disabled = true;
+
     showToast('Sending message...');
-    
-    setTimeout(() => {
+
+    const payload = new URLSearchParams();
+    payload.set('formType', inferContactSubmissionType(form));
+
+    formData.forEach((value, key) => {
+        if (typeof value === 'string') {
+            payload.set(key, value.trim());
+        }
+    });
+
+    try {
+        const response = await fetch('submit-form.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'Accept': 'application/json'
+            },
+            body: payload.toString()
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || 'Unable to submit the form right now.');
+        }
+
         showToast('Thank you! Your message has been sent. We will get back to you soon.');
         form.reset();
-    }, 1500);
-    
-    // In a real implementation, you would send this to a server:
-    // fetch('/api/contact', {
-    //     method: 'POST',
-    //     body: formData
-    // })
+    } catch (error) {
+        showToast(error.message || 'Submission failed. Please try again shortly.', 'error');
+    } finally {
+        if (submitButton) submitButton.disabled = false;
+    }
 }
 
 // ============================================
 // NEWSLETTER FORM HANDLER
 // ============================================
-function handleNewsletterSubmit(event) {
+async function handleNewsletterSubmit(event) {
     event.preventDefault();
     
-    const email = event.target.querySelector('input[type="email"]').value;
+    const form = event.target;
+    const emailInput = form.querySelector('input[type="email"]');
+    const email = emailInput ? emailInput.value.trim() : '';
     
     if (!email) {
         showToast('Please enter your email address', 'error');
@@ -638,9 +684,37 @@ function handleNewsletterSubmit(event) {
         showToast('Please enter a valid email address', 'error');
         return;
     }
-    
-    showToast('Thank you for subscribing!');
-    event.target.reset();
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) submitButton.disabled = true;
+
+    const payload = new URLSearchParams();
+    payload.set('formType', 'newsletter');
+    payload.set('email', email);
+
+    try {
+        const response = await fetch('submit-form.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'Accept': 'application/json'
+            },
+            body: payload.toString()
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || 'Could not subscribe right now.');
+        }
+
+        showToast('Thank you for subscribing!');
+        form.reset();
+    } catch (error) {
+        showToast(error.message || 'Could not subscribe right now. Please try again later.', 'error');
+    } finally {
+        if (submitButton) submitButton.disabled = false;
+    }
 }
 
 // ============================================
